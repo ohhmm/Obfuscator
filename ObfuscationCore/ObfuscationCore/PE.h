@@ -10,15 +10,17 @@ class PE
     DWORD					dwRO_first_section;
     DWORD					dwDepackCodeVirtualSize;
     IMAGE_DOS_HEADER		image_dos_header;
-    char					*pMem;
-    char					*reservedheader;
+    PTCHAR					pMem;
+    PTCHAR					reservedheader;
     IMAGE_NT_HEADERS		image_nt_headers;
     IMAGE_SECTION_HEADER	image_section_header[MAX_SECTION_NUM];
-    char					*image_section[MAX_SECTION_NUM];
+    PTCHAR                  image_section[MAX_SECTION_NUM];
     HANDLE                  hFile;
     DWORD dwFsize;
+    DWORD dwOutPutSize;
+    DWORD dwBytesRead;
 public:
-    void OpenFileName(char* FileName);
+    void OpenFileName(wchar_t* FileName);
     void UpdateHeaders(BOOL bSaveAndValidate);
     void UpdateHeadersSections(BOOL bSaveAndValidate);
     PIMAGE_SECTION_HEADER AddSection();

@@ -153,6 +153,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\PECrypterSettings.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -183,7 +187,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\send\send\singlton.hpp"
+				RelativePath=".\PECrypterSettings.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Property.h"
 				>
 			</File>
 			<File
@@ -200,6 +208,22 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+		</Filter>
+		<Filter
+			Name="Utils"
+			>
+			<File
+				RelativePath="..\..\..\send\send\Singleton.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Utils.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Utils.h"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"

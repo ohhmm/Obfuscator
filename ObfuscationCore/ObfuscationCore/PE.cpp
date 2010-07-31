@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "PE.h"
+#include "Utils.h"
 
 namespace
 {
@@ -55,16 +56,13 @@ namespace
     }
 }
 
-PE::PE(void)
-{
-}
 
-PE::~PE(void)
-{
-}
+DWORD IT_SIZE = 0x60;
+DWORD DEPACKER_CODE_SIZE;
+DWORD ALIGN_CORRECTION;
 
 //----------------------------------------------------------------
-void PE::OpenFileName(char* FileName)
+void PE::OpenFileName( wchar_t* FileName )
 {
 	//LOADED_IMAGE LoadedImage;
 	pMem=NULL;
@@ -85,8 +83,8 @@ void PE::OpenFileName(char* FileName)
 		ShowErr(FsizeErr);
 		return;
 	}
-	dwOutPutSize=dwFsize+IT_SIZE+DEPACKER_CODE_SIZE+ALIGN_CORRECTION;
-	pMem=(char*)GlobalAlloc(GMEM_FIXED | GMEM_ZEROINIT,dwOutPutSize);
+	dwOutPutSize=dwFsize + IT_SIZE + DEPACKER_CODE_SIZE + ALIGN_CORRECTION;
+	pMem = (PTCHAR)GlobalAlloc(GMEM_FIXED | GMEM_ZEROINIT,dwOutPutSize);
 	if(pMem == NULL)
 	{
 		CloseHandle(hFile);
@@ -166,7 +164,7 @@ void PE::UpdateHeadersSections(BOOL bSaveAndValidate)
 		for(i=0;i<SectionNum;i++)
 		{
 			image_section[i]=(char*)GlobalAlloc(GMEM_FIXED | GMEM_ZEROINIT,
-				PEAlign(image_section_header[i].SizeOfRawData,
+                Utils::PEAlign(image_section_header[i].SizeOfRawData,
 				image_nt_headers.OptionalHeader.FileAlignment));
 			CopyMemory(image_section[i],
 					pMem+image_section_header[i].PointerToRawData,
