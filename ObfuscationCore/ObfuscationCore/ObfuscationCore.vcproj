@@ -213,15 +213,15 @@
 			Name="Utils"
 			>
 			<File
-				RelativePath="..\..\..\send\send\Singleton.hpp"
+				RelativePath=".\Utils\Singleton.hpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Utils.cpp"
+				RelativePath=".\Utils\Utils.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Utils.h"
+				RelativePath=".\Utils\Utils.h"
 				>
 			</File>
 		</Filter>

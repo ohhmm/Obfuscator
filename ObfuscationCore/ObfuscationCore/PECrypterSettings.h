@@ -1,5 +1,5 @@
 #pragma once
-#include "singleton.hpp"
+#include "Utils/Singleton.hpp"
 
 class PECrypterSettings
 {
